@@ -58,6 +58,7 @@ public class WPScreenshotTest extends BaseTest {
         AppPrefs.setGutenbergInformativeDialogDisabled(true);
 
         tmpWPLogin();
+        Screengrab.screenshot("1-build-and-manage-your-website");
         editBlogPost();
         manageMedia();
         navigateStats();
@@ -112,14 +113,12 @@ public class WPScreenshotTest extends BaseTest {
 
         (new SitePickerPage()).chooseSiteWithURL("infocusphotographers.com");
 
-        // Get a screenshot of the post editor
-        screenshotPostWithName("Summer Band Jam", "1-PostEditor", true);
+        // Get a screenshot of the writing feature (without image)
+        String name = "2-create-beautiful-posts-and-pages";
+        screenshotPostWithName("Time to Book Summer Sessions", name, true);
 
         // Get a screenshot of the drafts feature
-        screenshotPostWithName("Ideas", "5-DraftEditor", false);
-
-        // Get a screenshot of the writing feature (without image)
-        screenshotPostWithName("Time to Book Summer Sessions", "6-Writing", true);
+        screenshotPostWithName("Ideas", "6-capture-ideas-on-the-go", false);
 
         // Exit back to the main activity
         pressBackUntilElementIsDisplayed(R.id.nav_sites);
@@ -156,7 +155,7 @@ public class WPScreenshotTest extends BaseTest {
 
         waitForElementToBeDisplayedWithoutFailure(R.id.media_grid_item_image);
 
-        Screengrab.screenshot("4-media");
+        Screengrab.screenshot("5-share-from-anywhere");
         pressBackUntilElementIsDisplayed(R.id.row_media);
     }
 
@@ -167,7 +166,7 @@ public class WPScreenshotTest extends BaseTest {
         waitForAtLeastOneElementWithIdToBeDisplayed(R.id.note_content_container);
         waitForImagesOfTypeWithPlaceholder(R.id.note_avatar, ImageType.AVATAR);
 
-        Screengrab.screenshot("3-notifications");
+        Screengrab.screenshot("4-check-whats-happening-in-real-time");
 
         // Exit the notifications activity
         pressBackUntilElementIsDisplayed(R.id.nav_sites);
@@ -180,7 +179,7 @@ public class WPScreenshotTest extends BaseTest {
 
         // Wait for the stats to load
         waitForAtLeastOneElementWithIdToBeDisplayed(R.id.stats_block_list);
-        Screengrab.screenshot("2-stats");
+        Screengrab.screenshot("3-track-what-your-visitors-love");
 
         // Exit the Stats Activity
         pressBackUntilElementIsDisplayed(R.id.nav_sites);
